@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: task-monitor-volumes.html 
+keywords: monitoring, cloud insights, tenant, acquisition unit, iops, throughput, latency, performance, cloud volumes ontap performance, volume performance 
+summary: 深入瞭解Cloud Volumes ONTAP 您的不執行個體的健全狀況和效能、並疑難排解及最佳化雲端儲存環境的效能。 
+---
+= 監控Volume效能
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+深入瞭解Cloud Volumes ONTAP 您的不執行個體的健全狀況和效能、並疑難排解及最佳化雲端儲存環境的效能。
+
+
+
+== 從Cloud Manager監控您的磁碟區
+
+檢視每個磁碟區的 IOPS 、處理量和延遲、以監控效能。
+
+.步驟
+. 在 Cloud Manager 頂端、按一下 * 監控 * 。
+. 篩選儀表板的內容、以取得所需的資訊。
++
+** 選取特定的工作環境。
+** 選取不同的時間範圍。
+** 選取特定 SVM 。
+** 搜尋特定 Volume 。
++
+下圖強調顯示每個選項：
+
++
+image:screenshot_filter_options.gif["「監控」索引標籤的快照、顯示可用來篩選儀表板內容的選項。"]
+
+
+
+. 按一下表格中的磁碟區以展開該列、並檢視 IOPS 、處理量和延遲的時間表。
++
+image:screenshot_vol_performance.gif["Volume 效能資料的快照。"]
+
+. 使用資料找出效能問題、將對使用者和應用程式的影響降至最低。
+
+
+
+
+== 取得Cloud Insights 更多資訊
+
+Cloud Manager 中的 Monitoring （監控）索引標籤可為您的磁碟區提供基本效能資料。您可以 Cloud Insights 從瀏覽器進入「靜態」網頁介面、以執行更深入的監控、並為 Cloud Volumes ONTAP 您的「靜態」系統設定警示。
+
+.步驟
+. 在 Cloud Manager 頂端、按一下 * 監控 * 。
+. 按一下 * Cloud Insights 《 * 》連結。
++
+image:screenshot_cloud_insights.gif["顯示 Cloud Insights 「監控」索引標籤右上角的「資訊」連結的快照。"]
+
+
+
+可在新的瀏覽器索引標籤中開啟。 Cloud Insights如果您需要協助、請參閱 https://docs.netapp.com/us-en/cloudinsights["本文檔 Cloud Insights"^]。

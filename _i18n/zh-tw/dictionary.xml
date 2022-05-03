@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blocks>
+  <block id="fc3ce0993b85ae920c5c4abc5708ad3b" category="summary">深入瞭解Cloud Volumes ONTAP VMware的健全狀況和效能、協助您疑難排解並最佳化雲端儲存環境的效能。</block>
+  <block id="1ac803a5cd07a2a8ed4a9e24b65ebbf9" category="doc">監控文件</block>
+  <block id="339d08e446e794ca396ae41b58022077" category="summary">請完成幾個步驟、開始監控Cloud Volumes ONTAP 效能。</block>
+  <block id="729e3399d869de5540bc06d71a6bcf81" category="doc">啟用監控</block>
+  <block id="5a2ebfb8baa378cfcfcba58bbb1380c2" category="section-title">需求</block>
+  <block id="4b09bdd4ca435f6a4b77b142f9481573" category="paragraph">請閱讀下列要求、確認您擁有支援的組態。</block>
+  <block id="e448b41406bd3d4d9730e610e85df32d" category="list-text">支援 Cloud Volumes ONTAP 的支援版本</block>
+  <block id="a8eb554349a8a8bb7c2c877209e15dee" category="list-text">AWS或Azure中的Cloud Volumes ONTAP 任何版本的不受限。</block>
+  <block id="c0b998714a9baf13f4812241f514854b" category="list-text">支援的連接器</block>
+  <block id="a96e7207e1d1f6fe986a07c9257d7a3b" category="list-text">對於AWS、您需要執行3.8.4版或更新版本的Connector。</block>
+  <block id="1aef5b8f3d21c01225cba8235f6cdde1" category="list-text">對於Azure、您需要執行3.9.3版或更新版本的Connector。</block>
+  <block id="54e982e1bea27e6634e277d138312f30" category="inline-image-macro">Cloud Manager右上角說明圖示的快照</block>
+  <block id="29f63f81321cc3df254e183a50de778e" category="admonition">您可以按一下檢視Connector的版本 <block ref="2e8b5b9a47659ba21cf2a64bede79308" category="inline-image-macro-rx" type="image"></block> 圖示、然後*支援&gt; Connector*。</block>
+  <block id="463217a023d354188941f7a0fa562d79" category="list-text">Cloud Central 的電子郵件地址</block>
+  <block id="20c6da5a2921935ebcfd7a383c4d6ba4" category="list-text">Cloud Central 使用者帳戶的電子郵件地址應為您的企業電子郵件地址。建立Cloud Insights 一個不支援免費的電子郵件網域、例如Gmail和Hotmai。</block>
+  <block id="f70c369ade93c7f80b291eb399f94b16" category="list-text">併購單位的網路</block>
+  <block id="64f520fabd7581bd853900d392dd3a6f" category="list-text">擷取單元使用雙向 / 相互驗證來連線 Cloud Insights 至該伺服器。用戶端憑證必須傳遞至 Cloud Insights 驗證伺服器。為達成此目的、必須設定 Proxy 、將 http 要求轉送到 Cloud Insights 該伺服器、而不需解密資料。</block>
+  <block id="f78ae7308aff68585547ec5cf9193336" category="paragraph">擷取單元使用下列兩個端點與 Cloud Insights 下列項目進行通訊。如果您在擷取裝置伺服器和 Cloud Insights 功能間有防火牆、則在設定防火牆規則時需要這些端點：</block>
+  <block id="506c2c0c7f5b70af3df68c45c46f45a7" category="paragraph">例如：</block>
+  <block id="878936c50100fc7474bbaec4e7cd5120" category="paragraph">如果您需要協助辨識 Cloud Insights 您的域名和租戶 ID 、請透過產品內對談與我們聯絡。</block>
+  <block id="cb8f276755e2feb7387afd4c7b1978d4" category="list-text">連接器的網路功能</block>
+  <block id="43b1e609912f355d005371a2cf7ffff4" category="list-text">與擷取單元類似、連接器必須具備連往 Cloud Insights 該插座的輸出連線能力。但連接器所接觸的端點則略有不同。它會使用簡短的租戶 ID 來聯絡租戶主機 URL ：</block>
+  <block id="bfd8f5dfed95659e77e67dd36c87fed8" category="paragraph">如果您需要識別租戶主機 URL 的協助、也可以透過產品內對談與我們聯絡。</block>
+  <block id="d5794ffcf56dea5e71353ace487ef015" category="section-title">在新系統上啟用監控</block>
+  <block id="5f43c063cec8eacc2a99b54439e779e1" category="paragraph">監控服務預設會在工作環境精靈中啟用。請務必保持啟用選項。</block>
+  <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">步驟</block>
+  <block id="36233220222760341fc9ff566bc8f320" category="list-text">按一下「 * 建立 Cloud Volumes ONTAP 參考 * 」。</block>
+  <block id="934582af2cf86f894f5b54d9cad4ff7f" category="list-text">選取Amazon Web Services或Microsoft Azure做為雲端供應商、然後選擇單一節點或HA系統。</block>
+  <block id="b44abc3e5e8508124c9a497fba2888b2" category="list-text">填寫「詳細資料與認證」頁面。</block>
+  <block id="ce13cef2f3b167157a6c73fd0f66fecb" category="list-text">在「服務」頁面上、讓監控服務保持啟用狀態、然後按一下*繼續*。</block>
+  <block id="b6f16a04b8d23dde168f57dff4599a1a" category="inline-image-macro">您可從「工作環境」精靈啟用的監控服務快照。</block>
+  <block id="14b1f69f5ec9bad5e292ed1fa5ef7c82" category="paragraph"><block ref="14b1f69f5ec9bad5e292ed1fa5ef7c82" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a8489828b7ec97229434c2645bbaac9d" category="section-title">在現有系統上啟用監控</block>
+  <block id="70219235e104b2c2094126a70e6fa665" category="paragraph">可隨時從工作環境進行監控。</block>
+  <block id="61c2f2d570697060ba80bae6ffdd50f8" category="list-text">在 Cloud Manager 頂端、按一下 * Canvas* 。</block>
+  <block id="d51a07decbe601cbb24e543eb1a87686" category="list-text">選取工作環境。</block>
+  <block id="ad2c0318c46ba61ac2883f938e0e0600" category="list-text">在右側窗格中、按一下 * 開始監控 * 。</block>
+  <block id="1ae9ad4bc4960de1115906f11d6e1adb" category="inline-image-macro">[選取工作環境之後、會顯示在「畫版」頁面上可用的「開始監控」圖示的快照。</block>
+  <block id="e5deca5d20df0bf0a9dab80fcb17f9af" category="paragraph"><block ref="e5deca5d20df0bf0a9dab80fcb17f9af" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0c6e6eead13e14e9e7af4cd4f9670fa4" category="summary">如果您不想再監控Cloud Volumes ONTAP 不穩定、可以隨時停用監控服務。</block>
+  <block id="dc0b4c4961a51250a7863d226048ea35" category="doc">停用監控服務</block>
+  <block id="0a6429eb3446b81ee99de3f8efd0eb55" category="paragraph">如果您停用每個工作環境的監控功能、則必須自行刪除虛擬機器執行個體。執行個體名稱為 _AcquisitionUnity_ 、其產生的雜湊（ UUID ）會串連在其中。例如： _AcquitionUnit-FAN7FqeH_</block>
+  <block id="bd4d542c04b14b8a7e8b4272920facf7" category="inline-image-macro">選取工作環境後、出現在「服務」窗格中的選項圖示快照</block>
+  <block id="8af580a9a4eb8c37f4d3a80e90478654" category="list-text">在右側窗格中、按一下 <block ref="2672f207370cb64bb5a95d61842ce25b" category="inline-image-macro-rx" type="image"></block> 圖示並選取 * 停用掃描 * 。</block>
+  <block id="ce21e7ae4271271294ccbf54c8fd6864" category="summary">NetApp以多種方式支援Cloud Manager。我們全年無休提供豐富的免費自助支援選項、例如知識庫（KB）文章和社群論壇。您的支援註冊包括透過網路票證提供遠端技術支援。</block>
+  <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="doc">取得協助</block>
+  <block id="51719eefc68685ac0e2a11057a44b8be" category="paragraph">NetApp以多種方式支援Cloud Manager及其雲端服務。我們全年無休提供豐富的免費自助支援選項、例如知識庫（KB）文章和社群論壇。您的支援註冊包括透過網路票證提供遠端技術支援。</block>
+  <block id="07d41912a6ab6b97216f8cf89e93205c" category="section-title">自我支援</block>
+  <block id="5e4b821a1a82558dead1ef6961e90666" category="paragraph">這些選項可供免費使用、一天24小時、一週7天：</block>
+  <block id="19111351b69b6b15668130b38b7f6038" category="inline-link">知識庫</block>
+  <block id="fd6bb4fa1ad0caeedd6782d92cc54ea3" category="list-text"><block ref="fd6bb4fa1ad0caeedd6782d92cc54ea3" category="inline-link-rx"></block></block>
+  <block id="76b571fb5edea1c1994fa0ff01f7b1e2" category="paragraph">請搜尋Cloud Manager知識庫、找出有助於疑難排解問題的文章。</block>
+  <block id="14526abd8bda5af347775025cd5342cf" category="inline-link">社群</block>
+  <block id="410fdb9caa9c64da2ff3f88f4836960d" category="list-text"><block ref="410fdb9caa9c64da2ff3f88f4836960d" category="inline-link-rx"></block></block>
+  <block id="7f3490343cad8dc3bfdb72dd5d957e8d" category="paragraph">加入Cloud Manager社群、追蹤後續討論或建立新討論。</block>
+  <block id="5b6cf869265c13af8566f192b4ab3d2a" category="list-text">文件</block>
+  <block id="3c313458d6e15dd2c4336e47118d0a8f" category="paragraph">您目前正在檢視的Cloud Manager文件。</block>
+  <block id="80b1b0d2b1ebf2b3cba2d25759801afd" category="list-text">mailto：ng-cloudmanager-feedback@netapp.com [意見反應電子郵件]</block>
+  <block id="bff60abbc46aceed0f73a3a4f6cfb123" category="paragraph">我們非常重視您的意見。提交意見反應、協助我們改善Cloud Manager。</block>
+  <block id="0659d428df833a806e29e65e632d380a" category="section-title">NetApp支援</block>
+  <block id="c91b5a63849b8d2db01014ed33192735" category="paragraph">除了上述的自我支援選項、您也可以與NetApp支援工程師合作、在您啟動支援之後解決任何問題。</block>
+  <block id="6c08c57e382a25a778455184cd9b1a4a" category="list-text">在Cloud Manager中、按一下*「說明」&gt;「支援」*。</block>
+  <block id="f5052c65917d7341726235d4d4941461" category="list-text">在「Technical Support（技術支援）」下選擇可用的選項之一：</block>
+  <block id="bece28b158ab337d9ed24b00d7d02cc7" category="list-text">按一下*致電我們*以尋找NetApp技術支援的電話號碼。</block>
+  <block id="efe81cff8e6f47ec59ef94167b76bf5a" category="list-text">按一下「*開啟問題*」、選取其中一個選項、然後按一下「*傳送*」。</block>
+  <block id="cbb1040836732e478409dacf7e45171a" category="paragraph">NetApp代表將審查您的案例、並盡快回覆您。</block>
+  <block id="6fd0c588599938b0c620f37d7880bd87" category="summary">Cloud Manager 運用 NetApp Cloud Insights 的「效益分析」服務、讓您深入瞭解 Cloud Volumes ONTAP 所有的「效益分析」執行個體的健全狀況與效能、並協助您疑難排解及最佳化雲端儲存環境的效能。</block>
+  <block id="32170de6c2f418678b9e314d24c62ca6" category="doc">瞭解監控服務</block>
+  <block id="4705a9f54a4ed415236b026bb7caa102" category="paragraph">監控服務可讓您深入瞭解Cloud Volumes ONTAP VMware執行個體的健全狀況與效能、並協助您疑難排解及最佳化雲端儲存環境的效能。</block>
+  <block id="98f770b0af18ca763421bac22b4b6805" category="section-title">功能</block>
+  <block id="8db40d74df4f0e54845a3f4a0752ff0d" category="list-text">自動監控所有 Volume</block>
+  <block id="eb7d5bc3ef800303720d2999fd055d5b" category="list-text">檢視 IOPS 、處理量和延遲等方面的 Volume 效能資料</block>
+  <block id="d6c81bc0bc0182b6bbc0e862c3da7ba6" category="list-text">找出效能問題、將對使用者和應用程式的影響降至最低</block>
+  <block id="902e65d33784bd8924eb05e622aa2dda" category="section-title">支援的雲端供應商</block>
+  <block id="8ff75c7d09342d288b4412c52f87971a" category="paragraph">支援Monitoring Service的Cloud Volumes ONTAP for AWS和Cloud Volumes ONTAP 適用於Azure的功能。</block>
+  <block id="20b4f77bd00b4f63a49ec8e08f3bf6a6" category="section-title">成本</block>
+  <block id="fa19b0daec31b7f6886f071c67bfffb7" category="paragraph">NetApp並不收取使用監控服務的費用、但Cloud Manager會在VPC中啟動虛擬機器、以利監控。此 VM 會向您的雲端供應商收取費用。</block>
+  <block id="d503d3398231cca32efdcf7ed7343e9b" category="section-title">監控服務的運作方式</block>
+  <block id="fbc1b4a0f7bb67078efc945ccc522209" category="inline-link">NetApp Cloud Insights 的不一樣服務</block>
+  <block id="69fc053eff677eeec878466b0fed698d" category="paragraph">Cloud Manager充分發揮效益<block ref="044f4e0e04c4f89c85847517222669b4" category="inline-link-rx"></block> 提供監控功能。</block>
+  <block id="45c5224446b8976746c72ff5d83fa9b0" category="paragraph">在與 Cloud Insights Cloud Manager 的高度整合中、整合了下列功能：</block>
+  <block id="268403689d82b63a213d45d09ea47780" category="list-text">您可以在 Cloud Volumes ONTAP 支援的情況下啟用監控服務。</block>
+  <block id="6ac560cbe2255cabde3b2b9e7877bcb8" category="list-text">Cloud Manager 可設定您的環境。它會執行下列動作：</block>
+  <block id="dce462d2bb34aacfd0cf51011e910a32" category="list-text">建立Cloud Insights 一個名為_environment_的不完整租戶、並將您NetApp帳戶中的所有使用者與租戶建立關聯。</block>
+  <block id="3ba2326641aeaab24a6692b74f38194e" category="paragraph">如果您已經有租戶、Cloud Manager就會使用該現有租戶。</block>
+  <block id="e8675a7ad8e9fce3fc3f468a4298e9f0" category="list-text">免費試用Cloud Insights 版的VMware。</block>
+  <block id="4f407ad617aec7f56138e7f5dcb581be" category="inline-link">基本版</block>
+  <block id="96ab8183ce5eb8d22795330f1b747082" category="paragraph">在第29天、您的計畫會自動從試用版移轉至<block ref="34a93ad61035abe9ad6e17d10c04ea84" category="inline-link-rx"></block>。</block>
+  <block id="98b1628f6934214f44b47ac1cd608b5b" category="list-text">在VPC/vnet中部署稱為擷取單元的虛擬機器。擷取單元可協助監控磁碟區（這是上述「成本」一節中所述的VM）。</block>
+  <block id="8dd98fb78d1ae659ef53ce0c68eb5e49" category="list-text">將擷取裝置連接 Cloud Volumes ONTAP 至不實和 Cloud Insights 不實的用戶端。</block>
+  <block id="fd0f7b80488c5fcf1b6deef9a426c846" category="list-text">在 Cloud Manager 中、您可以按一下「監控」、然後使用效能資料來疑難排解及最佳化效能。</block>
+  <block id="a456619865997a1bae5cefb7fc6f9718" category="paragraph">下圖顯示AWS VPC中這些元件之間的關係：</block>
+  <block id="ad416b6dcff599c4020128b2dc175114" category="inline-image-macro">概念性圖表顯示 Cloud Volumes ONTAP AWS 中的 Cloud Manager 、功能與擷取單元。</block>
+  <block id="a6ecefab3fbedbdf095d62e2de9b9ac8" category="paragraph"><block ref="a6ecefab3fbedbdf095d62e2de9b9ac8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9decaae2954075c30e05c28d69d200f0" category="section-title">擷取單位</block>
+  <block id="7851196f2573d6e8c220efc2cee98de2" category="paragraph">啟用監控時、 Cloud Manager 會在連接器所在的同一子網路中部署擷取單元。</block>
+  <block id="39b529c64b7959028373fbbc7684872c" category="paragraph">_Acquisition 採棉頭 _ 會從 Cloud Volumes ONTAP VMware 收集效能資料、並將其傳送給 Cloud Insights 該客戶。然後 Cloud Manager 會查詢資料、並將其呈現給您。</block>
+  <block id="945e0fed9a7bdec584435e6c7d8141d1" category="paragraph">請注意下列關於擷取單位執行個體的資訊：</block>
+  <block id="ff91a9909762bc340b1c5b0819a7517b" category="list-text">在AWS中、擷取單元執行於一個T3.xlarge執行個體、其具有100 GiB GP2 Volume。</block>
+  <block id="ba745553d62ccfed8b0dff7ed60d5f73" category="list-text">在Azure中、擷取單元是在採用30 GiB標準SSD的D4_v3虛擬機器上執行。</block>
+  <block id="9e558a3b953a3bced53e2b64330725ae" category="list-text">此執行個體的名稱為_CloudInsights -AU_、其產生的雜湊（UUID）會串連在其中。例如：_CloudInsights -AU-FAN7FqeH_</block>
+  <block id="87537d4e762a444d69db1be46b28bb93" category="list-text">每個連接器只部署一個擷取單元。</block>
+  <block id="83eea2a335a5cbcbe2f57d854e3cb429" category="list-text">執行個體必須執行才能存取「監控」索引標籤中的效能資訊。</block>
+  <block id="67943efa4764fd5a2ed47b9ff46c7b92" category="section-title">用戶 Cloud Insights</block>
+  <block id="e459959dbdc40c7393b40fd2b3adb238" category="paragraph">如果您還沒有_租 戶_、Cloud Manager會在您啟用監控時為您設定一個帳戶。利用此功能、您可以存取擷取單位所收集的效能資料。 Cloud Insights租戶是 NetApp Cloud Insights 解決方案服務中的安全資料分割區。</block>
+  <block id="7826a608f0d613bb79ae213c751a25c8" category="section-title">網路介面 Cloud Insights</block>
+  <block id="401751e94a8b713556633718c6c320eb" category="paragraph">Cloud Manager 中的 Monitoring （監控）索引標籤可為您的磁碟區提供基本效能資料。您可以 Cloud Insights 從瀏覽器進入「靜態」網頁介面、以執行更深入的監控、並為 Cloud Volumes ONTAP 您的「靜態」系統設定警示。</block>
+  <block id="2f86b910a7b81bfc6563aa6d71bfc194" category="section-title">免費試用與訂閱</block>
+  <block id="93640c5afac4938bee23d7df2567bb9d" category="paragraph">Cloud Manager提供Cloud Insights 免費的VMware試用版、可在Cloud Manager中提供效能資料、讓您探索Cloud Insights VMware標準版的各項功能。</block>
+  <block id="9553e123fee6cb25d4b917ebf7b88617" category="paragraph">在第29天、您的計畫會自動從試用版移轉至<block ref="34a93ad61035abe9ad6e17d10c04ea84" category="inline-link-rx"></block></block>
+  <block id="3b7f31bb4dbb02b16991990721560e9e" category="paragraph">您可以訂閱Standard或Premium版本、從Cloud Insights 這個網頁介面存取其他功能。</block>
+  <block id="cd787eb9914f30d028c173de936884d8" category="inline-link">瞭解如何訂閱 Cloud Insights 此功能</block>
+  <block id="46bde63c6461fde9a8b1bdd87e23ae20" category="paragraph"><block ref="46bde63c6461fde9a8b1bdd87e23ae20" category="inline-link-rx"></block></block>
+  <block id="d41d8cd98f00b204e9800998ecf8427e" category="summary"></block>
+  <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法律聲明</block>
+  <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">法律聲明提供版權聲明、商標、專利等存取權限。</block>
+  <block id="6016a2b341113bf496b719905398ecd2" category="section-title">版權</block>
+  <block id="09e95b77ffe81fe465a83ba99efad5c8" category="paragraph"><block ref="09e95b77ffe81fe465a83ba99efad5c8" category="inline-link-rx"></block></block>
+  <block id="126a02652da6de02962cf1b654fd6376" category="section-title">商標</block>
+  <block id="c4ce4761e466527d26b3e3d5ed1006fd" category="paragraph">NetApp 、 NetApp 標誌及 NetApp 商標頁面上列出的標章均為 NetApp 、 Inc. 的商標。其他公司與產品名稱可能為其各自所有者的商標。</block>
+  <block id="7aa531e9acfe2b98e34d2c92fe9846ff" category="paragraph"><block ref="7aa531e9acfe2b98e34d2c92fe9846ff" category="inline-link-rx"></block></block>
+  <block id="be89498d2f8a22ce47c02ba9795fe2af" category="section-title">專利</block>
+  <block id="d0b19d36be2c5f16e9aef46c8a452d3d" category="paragraph">如需最新的 NetApp 擁有專利清單、請參閱：</block>
+  <block id="d7f1fbcf9ce4e42f705add574d262b2c" category="paragraph"><block ref="d7f1fbcf9ce4e42f705add574d262b2c" category="inline-link-rx"></block></block>
+  <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">隱私權政策</block>
+  <block id="fc248f74f5e36542f7f5627b8610e9a3" category="paragraph"><block ref="fc248f74f5e36542f7f5627b8610e9a3" category="inline-link-rx"></block></block>
+  <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">開放原始碼</block>
+  <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">通知檔案提供有關 NetApp 軟體所使用之協力廠商版權與授權的資訊。</block>
+  <block id="4940124e8487cb4ea36f1511a195cf66" category="inline-link-macro">Cloud Manager 3.9 注意事項</block>
+  <block id="c069fcc68c5dfa73ccc99924c836cae9" category="paragraph"><block ref="c069fcc68c5dfa73ccc99924c836cae9" category="inline-link-macro-rx"></block></block>
+  <block id="c6712c57a0afb817a7b956edea075886" category="summary">瞭解監控服務的新功能。</block>
+  <block id="490414e0366b091220802d406e52c076" category="doc">新功能</block>
+  <block id="9e27c4a53794e4f6cfc9949de58e5091" category="section-title">2021年8月1日</block>
+  <block id="f9564bccd9f6164dfb5486c5fe5ff233" category="section-title">變更為擷取單位名稱</block>
+  <block id="6894648546fd35a9ed4c63e020255bbb" category="paragraph">我們將擷取單元執行個體的預設名稱變更為CloudInsights–AU-_UUUUID_、使名稱更具說明性（UUID為產生的雜湊）。</block>
+  <block id="3ee7977b62b54344390843236b7b7fbe" category="paragraph">當您在Cloud Volumes ONTAP 運作環境中啟用監控服務時、Cloud Manager會部署此執行個體。</block>
+  <block id="5057fdb214d9f3773bc386ba2aa1fcb0" category="section-title">2021年5月5日</block>
+  <block id="e192d178d731a26f369fc9ded8b836ed" category="section-title">支援現有租戶</block>
+  <block id="10df6526a8d972614ac33d019e498209" category="paragraph">現在、即使Cloud Volumes ONTAP 您有Cloud Insights 現有的支援者、也可以在不工作環境中啟用監控服務。</block>
+  <block id="261bb9c11863cc45e7b0056b34cabf2c" category="section-title">免費試用版移轉</block>
+  <block id="1cb2499c8013bb0ab523a856eeaa4c6f" category="paragraph">啟用監控服務時、Cloud Manager會免費試用Cloud Insights VMware。在第29天、您的計畫現在會自動從試用版移轉至<block ref="34a93ad61035abe9ad6e17d10c04ea84" category="inline-link-rx"></block>。</block>
+  <block id="d42fa6c698bffd937b50724aa035c2cb" category="section-title">2021年2月9日</block>
+  <block id="049a56718afb4bc754cebf8a5567c3c8" category="section-title">支援Azure</block>
+  <block id="0627ad1b1205310c0a00e6213dc9ee59" category="paragraph">目前支援Azure的Monitoring服務Cloud Volumes ONTAP 。</block>
+  <block id="308527077ec474b731b7715b5cd1deb2" category="section-title">政府區域的支援</block>
+  <block id="d90533b31d8a70a6866bd47c12676ca9" category="paragraph">AWS和Azure的政府區域也支援監控服務。</block>
+  <block id="10e15e8c8cca4454457cc4aaa2a56097" category="section-title">2020年5月10日</block>
+  <block id="bd64f294036bab1f6e7e3bfc511da26b" category="section-title">監控服務簡介</block>
+  <block id="2e68ff3befd8bbfb2e75d69f325369b3" category="paragraph">Cloud Manager運用NetApp Cloud Insights 的《效益分析》服務、讓您深入瞭解Cloud Volumes ONTAP VMware執行個體的健全狀況與效能、並協助您疑難排解及最佳化雲端儲存環境的效能。</block>
+  <block id="1ab0bb448488f7a68322d61506a5b0d2" category="doc">監控服務的快速入門</block>
+  <block id="06ad314b340900d226b1196e1fe289e9" category="section-title">快速入門</block>
+  <block id="2433628c53fed80ea9d352a1bcd9ce45" category="paragraph">請依照下列步驟快速入門、或向下捲動至其餘部分以取得完整詳細資料。</block>
+  <block id="9637543697c707cfc64db2a64d650753" category="list-title">span class="image"&gt;&lt;imgrc=<block ref="0c3becc25d95e48b9ca863002a042824" category="inline-link-rx"></block> alt="1"&gt;&lt;/span&gt;請確認您的組態是否支援</block>
+  <block id="3436cae55d61cb022107d716f1026390" category="list-text">您需要Cloud Volumes ONTAP 在AWS或Azure上執行的功能完善的系統。</block>
+  <block id="966a8429dbb528261aa2482a1ca79d72" category="inline-link-macro">深入瞭解需求</block>
+  <block id="8e69106cfff76d6c1a339b8cd383b4e9" category="paragraph"><block ref="148dbc69044ff57333f3548ae1cc891e" category="inline-link-macro-rx"></block>。</block>
+  <block id="722633358ba31d7707c65d27ddf3d008" category="list-title">span class="image"&gt;&lt;imgrc=<block ref="c9bdd0fd7d7224adcf67691b15f15281" category="inline-link-rx"></block> Alt="2"&gt;&lt;/span&gt;在新的或現有的系統上啟用監控</block>
+  <block id="81cf96b7a3a7a2208f9d0015459ae5bb" category="list-text">新的工作環境：建立工作環境時（預設為啟用監控）、請務必保持啟用監控。</block>
+  <block id="7177e20d9e879af87a3791ebd8267cd4" category="list-text">現有工作環境：選取工作環境、然後按一下 * 開始監控 * 。</block>
+  <block id="54f56046aaaf448c99b88b8d001bc955" category="inline-link-macro">深入瞭解如何啟用監控服務</block>
+  <block id="3e3868ac048b162f0784657d51c12860" category="paragraph"><block ref="7cadc116ecc87f791f0e2cb91a7b3b38" category="inline-link-macro-rx"></block>。</block>
+  <block id="e9505bfa1fdf9d5b80a391f1e2afc220" category="paragraph">按一下 * 監控 * 、檢視磁碟區的效能資料。</block>
+  <block id="b39129436fe706412985a2b4f3133d64" category="inline-link-macro">深入瞭解監控效能</block>
+  <block id="7005b1402df68d468d064a3a55a00548" category="paragraph"><block ref="c084514e15d19b3910db959b18e3620c" category="inline-link-macro-rx"></block>。</block>
+  <block id="deffe34bfa02de7443259988e07452bf" category="summary">深入瞭解Cloud Volumes ONTAP 您的不執行個體的健全狀況和效能、並疑難排解及最佳化雲端儲存環境的效能。</block>
+  <block id="ce77715626079095fa554aca4f19278b" category="doc">監控Volume效能</block>
+  <block id="5fb419e147d98d742049266613a54dde" category="section-title">從Cloud Manager監控您的磁碟區</block>
+  <block id="03db9ce65a673b138b228fbe2e12eb37" category="paragraph">檢視每個磁碟區的 IOPS 、處理量和延遲、以監控效能。</block>
+  <block id="b540c8a032617aa935821e95ad38b399" category="list-text">在 Cloud Manager 頂端、按一下 * 監控 * 。</block>
+  <block id="efbd49f3e0931551e223f659593ee988" category="list-text">篩選儀表板的內容、以取得所需的資訊。</block>
+  <block id="c4135490996ef9ff0f664403bcc266dc" category="list-text">選取特定的工作環境。</block>
+  <block id="2edae6809e5c396d7d9a9b8c2b53891a" category="list-text">選取不同的時間範圍。</block>
+  <block id="3a4eec94021ac99757dde286a16f3887" category="list-text">選取特定 SVM 。</block>
+  <block id="b94eb16931c83d4321829861a106e727" category="list-text">搜尋特定 Volume 。</block>
+  <block id="4c3e1e4eb0e483bf5e5aadae996d1f7a" category="paragraph">下圖強調顯示每個選項：</block>
+  <block id="c04458deca68801da23d68400c1b3325" category="inline-image-macro">「監控」索引標籤的快照、顯示可用來篩選儀表板內容的選項。</block>
+  <block id="52bc2dc0bc27bb6ef464947fde4da440" category="paragraph"><block ref="52bc2dc0bc27bb6ef464947fde4da440" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c30786cdd7a41f051c80f178aff0857c" category="list-text">按一下表格中的磁碟區以展開該列、並檢視 IOPS 、處理量和延遲的時間表。</block>
+  <block id="3230c78207b2d29da977185127f81097" category="inline-image-macro">Volume 效能資料的快照。</block>
+  <block id="9c5db291f203b608d5f57c73525e0dbf" category="paragraph"><block ref="9c5db291f203b608d5f57c73525e0dbf" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="96d807138428151372197a6d9624b546" category="list-text">使用資料找出效能問題、將對使用者和應用程式的影響降至最低。</block>
+  <block id="bf917a1aa0404d3eb4b93f1f5744bee3" category="section-title">取得Cloud Insights 更多資訊</block>
+  <block id="d93a59356f8e96bcd7f4f666092ec051" category="list-text">按一下 * Cloud Insights 《 * 》連結。</block>
+  <block id="2c1cef4b70d93bb3ae9b1cc5d0686e97" category="inline-image-macro">顯示 Cloud Insights 「監控」索引標籤右上角的「資訊」連結的快照。</block>
+  <block id="435b794d014c687856a5fbf6705d2f73" category="paragraph"><block ref="435b794d014c687856a5fbf6705d2f73" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5858ee4031acd7b896faa2d3d2c1a299" category="inline-link">本文檔 Cloud Insights</block>
+  <block id="1fe8d87b5f1ace8b1433a3db69350bb9" category="paragraph">可在新的瀏覽器索引標籤中開啟。 Cloud Insights如果您需要協助、請參閱<block ref="2021330658681c480a1c22f14e5975a3" category="inline-link-rx"></block>。</block>
+  <block id="3c10116b37b407ac79092a38ffb292e4" category="summary">在您透過NetApp技術支援開啟支援案例之前、您必須先將NetApp支援網站帳戶新增至Cloud Manager、然後註冊以取得支援。</block>
+  <block id="42748df9eaa0be17ddc5cc1593cf57ab" category="doc">註冊以取得支援</block>
+  <block id="aeaeee19a7c393222e407a525cf01991" category="section-title">新增一個NSS帳戶</block>
+  <block id="de2241fea60d98698faaa196ff73ee80" category="paragraph">「支援儀表板」可讓您從單一位置新增及管理所有NetApp支援網站帳戶。</block>
+  <block id="5be2593b5948f30a15179a32daa73ee2" category="inline-link">註冊一項</block>
+  <block id="14b05cf61f1aba58d38b393e69b69538" category="list-text">如果您還沒有 NetApp 支援網站帳戶、<block ref="0a8e82436ea73fe635862cfba3acf101" category="inline-link-rx"></block>。</block>
+  <block id="0046efb3377274ff3215d4b30269809e" category="list-text">在Cloud Manager主控台右上角、按一下「說明」圖示、然後選取*「支援」*。</block>
+  <block id="b50f0a46135bcb7083b1f2f82032fc26" category="inline-image-macro">「說明」功能表的快照、其中「支援」是第一個列出的選項</block>
+  <block id="868d9aa88f16ea923af1d15eac5d2647" category="paragraph"><block ref="868d9aa88f16ea923af1d15eac5d2647" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d17d6b5dafebab6b7659da8850737e70" category="list-text">按一下「*」「nss管理」&gt;「新增nssAccount」*。</block>
+  <block id="8aaf101e623c543c7eef3c65f6233366" category="list-text">出現提示時、按一下*繼續*以重新導向至Microsoft登入頁面。</block>
+  <block id="19d089db572ee6a1e154a0c9c9e57bfd" category="paragraph">NetApp使用Microsoft Azure Active Directory做為身分識別供應商、提供專為支援與授權所設計的驗證服務。</block>
+  <block id="465ec6d5eafa3524c948c99d8bfcd306" category="list-text">在登入頁面上、提供您的NetApp支援網站註冊電子郵件地址和密碼、以執行驗證程序。</block>
+  <block id="f5fb4199485234c409525f430b737010" category="paragraph">此動作可讓Cloud Manager使用您的NSS帳戶。</block>
+  <block id="b4c6a2f33e7b2a38495546b8d5cd8e84" category="paragraph">附註：帳戶必須是客戶層級的帳戶（非來賓帳戶或臨時帳戶）。</block>
+  <block id="fc65ebd4739f2f8ca46062a8280faea9" category="section-title">註冊您的帳戶以取得支援</block>
+  <block id="3e080914efe0d0ca025439fbb68d437f" category="paragraph">支援註冊可從支援儀表板的Cloud Manager取得。</block>
+  <block id="fb07bf6b7698dbe934b8b2164d915484" category="list-text">在* Resources（資源）*選項卡中，單擊* Register for Support*（註冊以獲得支持*）。</block>
+  <block id="392fb0270d0d84dbc3fdf8c67da1e5ad" category="list-text">選取您要登錄的NSS認證、然後按一下「*登錄*」。</block>
+  <block id="7ff191df90fac0fa94ab5c2b5101a5e9" category="sidebar">所有Cloud Manager文件</block>
+  <block id="912bed1d23c871964d4d8656f78f54b8" category="sidebar">監控文件</block>
+  <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">版本資訊</block>
+  <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">開始使用</block>
+  <block id="2a8c90464d0bceecefc5742b343edc30" category="sidebar">使用監控服務</block>
+  <block id="0adc03eac86772ad2c75c8f140be417e" category="sidebar">知識與支援</block>
+  <block id="813011e2103649bb71f124adedcc10ea" category="sidebar">部落格社群</block>
+  <block id="dd490b81914dd945601e442a41cb4222" category="sidebar">NetApp社群</block>
+  <block id="ff6c37cbc252e306a6b4e390ec13cbc1" category="sidebar">Cloud Central部落格</block>
+  <block id="ad203e818e0c9d7f42f1c260b33875f3" category="sidebar">雲端網路研討會</block>
+</blocks>

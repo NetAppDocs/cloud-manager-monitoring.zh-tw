@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: whats-new.html 
+keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes' 
+summary: 瞭解監控服務的新功能。 
+---
+= 新功能
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+瞭解監控服務的新功能。
+
+
+
+== 2021年8月1日
+
+
+
+=== 變更為擷取單位名稱
+
+我們將擷取單元執行個體的預設名稱變更為CloudInsights–AU-_UUUUID_、使名稱更具說明性（UUID為產生的雜湊）。
+
+當您在Cloud Volumes ONTAP 運作環境中啟用監控服務時、Cloud Manager會部署此執行個體。
+
+
+
+== 2021年5月5日
+
+
+
+=== 支援現有租戶
+
+現在、即使Cloud Volumes ONTAP 您有Cloud Insights 現有的支援者、也可以在不工作環境中啟用監控服務。
+
+
+
+=== 免費試用版移轉
+
+啟用監控服務時、Cloud Manager會免費試用Cloud Insights VMware。在第29天、您的計畫現在會自動從試用版移轉至 https://docs.netapp.com/us-en/cloudinsights/concept_subscribing_to_cloud_insights.html#editions["基本版"^]。
+
+
+
+== 2021年2月9日
+
+
+
+=== 支援Azure
+
+目前支援Azure的Monitoring服務Cloud Volumes ONTAP 。
+
+
+
+=== 政府區域的支援
+
+AWS和Azure的政府區域也支援監控服務。
+
+
+
+== 2020年5月10日
+
+
+
+=== 監控服務簡介
+
+Cloud Manager運用NetApp Cloud Insights 的《效益分析》服務、讓您深入瞭解Cloud Volumes ONTAP VMware執行個體的健全狀況與效能、並協助您疑難排解及最佳化雲端儲存環境的效能。

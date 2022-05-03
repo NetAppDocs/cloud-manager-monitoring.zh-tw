@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: task-disable-monitoring.html 
+keywords: disable monitoring, stop monitoring, disable, deactivate 
+summary: 如果您不想再監控Cloud Volumes ONTAP 不穩定、可以隨時停用監控服務。 
+---
+= 停用監控服務
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果您不想再監控Cloud Volumes ONTAP 不穩定、可以隨時停用監控服務。
+
+如果您停用每個工作環境的監控功能、則必須自行刪除虛擬機器執行個體。執行個體名稱為 _AcquisitionUnity_ 、其產生的雜湊（ UUID ）會串連在其中。例如： _AcquitionUnit-FAN7FqeH_
+
+.步驟
+. 在 Cloud Manager 頂端、按一下 * Canvas* 。
+. 選取工作環境。
+. 在右側窗格中、按一下 image:screenshot_gallery_options.gif["選取工作環境後、出現在「服務」窗格中的選項圖示快照"] 圖示並選取 * 停用掃描 * 。
+

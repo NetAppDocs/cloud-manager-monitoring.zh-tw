@@ -1,0 +1,99 @@
+---
+sidebar: sidebar 
+permalink: task-enable-monitoring.html 
+keywords: monitoring, cloud insights, tenant, acquisition unit, iops, throughput, latency, performance, cloud volumes ontap performance, volume performance 
+summary: 請完成幾個步驟、開始監控Cloud Volumes ONTAP 效能。 
+---
+= 啟用監控
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+請完成幾個步驟、開始監控Cloud Volumes ONTAP 效能。
+
+
+
+== 需求
+
+請閱讀下列要求、確認您擁有支援的組態。
+
+支援 Cloud Volumes ONTAP 的支援版本:: AWS或Azure中的Cloud Volumes ONTAP 任何版本的不受限。
+支援的連接器::
++
+--
+* 對於AWS、您需要執行3.8.4版或更新版本的Connector。
+* 對於Azure、您需要執行3.9.3版或更新版本的Connector。
+
+
+--
+
+
+
+TIP: 您可以按一下檢視Connector的版本 image:screenshot_help_icon.gif["Cloud Manager右上角說明圖示的快照"] 圖示、然後*支援> Connector*。
+
+Cloud Central 的電子郵件地址:: Cloud Central 使用者帳戶的電子郵件地址應為您的企業電子郵件地址。建立Cloud Insights 一個不支援免費的電子郵件網域、例如Gmail和Hotmai。
+併購單位的網路:: 擷取單元使用雙向 / 相互驗證來連線 Cloud Insights 至該伺服器。用戶端憑證必須傳遞至 Cloud Insights 驗證伺服器。為達成此目的、必須設定 Proxy 、將 http 要求轉送到 Cloud Insights 該伺服器、而不需解密資料。
++
+--
+擷取單元使用下列兩個端點與 Cloud Insights 下列項目進行通訊。如果您在擷取裝置伺服器和 Cloud Insights 功能間有防火牆、則在設定防火牆規則時需要這些端點：
+
+....
+https://aulogin.<Cloud Insights Domain>
+https://<your-tenant-ID>.<Cloud Insights Domain>
+....
+例如：
+
+....
+https://aulogin.c01.cloudinsights.netapp.com
+https://cg0c586a-ee05-45rb-a5ac-333b5ae7718d7.c01.cloudinsights.netapp.com
+....
+如果您需要協助辨識 Cloud Insights 您的域名和租戶 ID 、請透過產品內對談與我們聯絡。
+
+--
+連接器的網路功能:: 與擷取單元類似、連接器必須具備連往 Cloud Insights 該插座的輸出連線能力。但連接器所接觸的端點則略有不同。它會使用簡短的租戶 ID 來聯絡租戶主機 URL ：
++
+--
+ https://<your-short-tenant-ID>.<Cloud Insights Domain>
+例如：
+
+ https://abcd12345.c01.cloudinsights.netapp.com
+如果您需要識別租戶主機 URL 的協助、也可以透過產品內對談與我們聯絡。
+
+--
+
+
+
+
+== 在新系統上啟用監控
+
+監控服務預設會在工作環境精靈中啟用。請務必保持啟用選項。
+
+.步驟
+. 按一下「 * 建立 Cloud Volumes ONTAP 參考 * 」。
+. 選取Amazon Web Services或Microsoft Azure做為雲端供應商、然後選擇單一節點或HA系統。
+. 填寫「詳細資料與認證」頁面。
+. 在「服務」頁面上、讓監控服務保持啟用狀態、然後按一下*繼續*。
++
+image:screenshot_monitoring.gif["您可從「工作環境」精靈啟用的監控服務快照。"]
+
+
+
+
+
+== 在現有系統上啟用監控
+
+可隨時從工作環境進行監控。
+
+.步驟
+. 在 Cloud Manager 頂端、按一下 * Canvas* 。
+. 選取工作環境。
+. 在右側窗格中、按一下 * 開始監控 * 。
++
+image:screenshot_enable_monitoring.gif["[選取工作環境之後、會顯示在「畫版」頁面上可用的「開始監控」圖示的快照。"]
+
+

@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: task-quick-start.html 
+keywords: quick start, get started 
+summary: 請完成幾個步驟、開始監控Cloud Volumes ONTAP 效能。 
+---
+= 監控服務的快速入門
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+請完成幾個步驟、開始監控Cloud Volumes ONTAP 效能。
+
+
+
+== 快速入門
+
+請依照下列步驟快速入門、或向下捲動至其餘部分以取得完整詳細資料。
+
+.span class="image"><imgrc="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] alt="1"></span>請確認您的組態是否支援
+* 您需要Cloud Volumes ONTAP 在AWS或Azure上執行的功能完善的系統。
+* 對於AWS、您需要執行3.8.4版或更新版本的Connector。
+* 對於Azure、您需要執行3.9.3版或更新版本的Connector。
+
+
+[role="quick-margin-para"]
+link:task-enable-monitoring.html["深入瞭解需求"]。
+
+.span class="image"><imgrc="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] Alt="2"></span>在新的或現有的系統上啟用監控
+* 新的工作環境：建立工作環境時（預設為啟用監控）、請務必保持啟用監控。
+* 現有工作環境：選取工作環境、然後按一下 * 開始監控 * 。
+
+
+[role="quick-margin-para"]
+link:task-enable-monitoring.html["深入瞭解如何啟用監控服務"]。
+
+[role="quick-margin-para"]
+按一下 * 監控 * 、檢視磁碟區的效能資料。
+
+[role="quick-margin-para"]
+link:task-monitor-volumes.html["深入瞭解監控效能"]。

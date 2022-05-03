@@ -1,0 +1,109 @@
+---
+sidebar: sidebar 
+permalink: concept-monitoring.html 
+keywords: concepts, how cloud insights works, how monitoring works, features, monitoring features, cloud insights features, cost, monitoring 
+summary: Cloud Manager 運用 NetApp Cloud Insights 的「效益分析」服務、讓您深入瞭解 Cloud Volumes ONTAP 所有的「效益分析」執行個體的健全狀況與效能、並協助您疑難排解及最佳化雲端儲存環境的效能。 
+---
+= 瞭解監控服務
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+監控服務可讓您深入瞭解Cloud Volumes ONTAP VMware執行個體的健全狀況與效能、並協助您疑難排解及最佳化雲端儲存環境的效能。
+
+
+
+== 功能
+
+* 自動監控所有 Volume
+* 檢視 IOPS 、處理量和延遲等方面的 Volume 效能資料
+* 找出效能問題、將對使用者和應用程式的影響降至最低
+
+
+
+
+== 支援的雲端供應商
+
+支援Monitoring Service的Cloud Volumes ONTAP for AWS和Cloud Volumes ONTAP 適用於Azure的功能。
+
+
+
+== 成本
+
+NetApp並不收取使用監控服務的費用、但Cloud Manager會在VPC中啟動虛擬機器、以利監控。此 VM 會向您的雲端供應商收取費用。
+
+
+
+== 監控服務的運作方式
+
+Cloud Manager充分發揮效益 https://cloud.netapp.com/cloud-insights["NetApp Cloud Insights 的不一樣服務"^] 提供監控功能。
+
+在與 Cloud Insights Cloud Manager 的高度整合中、整合了下列功能：
+
+. 您可以在 Cloud Volumes ONTAP 支援的情況下啟用監控服務。
+. Cloud Manager 可設定您的環境。它會執行下列動作：
++
+.. 建立Cloud Insights 一個名為_environment_的不完整租戶、並將您NetApp帳戶中的所有使用者與租戶建立關聯。
++
+如果您已經有租戶、Cloud Manager就會使用該現有租戶。
+
+.. 免費試用Cloud Insights 版的VMware。
++
+在第29天、您的計畫會自動從試用版移轉至 https://docs.netapp.com/us-en/cloudinsights/concept_subscribing_to_cloud_insights.html#editions["基本版"^]。
+
+.. 在VPC/vnet中部署稱為擷取單元的虛擬機器。擷取單元可協助監控磁碟區（這是上述「成本」一節中所述的VM）。
+.. 將擷取裝置連接 Cloud Volumes ONTAP 至不實和 Cloud Insights 不實的用戶端。
+
+
+. 在 Cloud Manager 中、您可以按一下「監控」、然後使用效能資料來疑難排解及最佳化效能。
+
+
+下圖顯示AWS VPC中這些元件之間的關係：
+
+image:diagram_cloud_insights.png["概念性圖表顯示 Cloud Volumes ONTAP AWS 中的 Cloud Manager 、功能與擷取單元。"]
+
+
+
+=== 擷取單位
+
+啟用監控時、 Cloud Manager 會在連接器所在的同一子網路中部署擷取單元。
+
+_Acquisition 採棉頭 _ 會從 Cloud Volumes ONTAP VMware 收集效能資料、並將其傳送給 Cloud Insights 該客戶。然後 Cloud Manager 會查詢資料、並將其呈現給您。
+
+請注意下列關於擷取單位執行個體的資訊：
+
+* 在AWS中、擷取單元執行於一個T3.xlarge執行個體、其具有100 GiB GP2 Volume。
+* 在Azure中、擷取單元是在採用30 GiB標準SSD的D4_v3虛擬機器上執行。
+* 此執行個體的名稱為_CloudInsights -AU_、其產生的雜湊（UUID）會串連在其中。例如：_CloudInsights -AU-FAN7FqeH_
+* 每個連接器只部署一個擷取單元。
+* 執行個體必須執行才能存取「監控」索引標籤中的效能資訊。
+
+
+
+
+=== 用戶 Cloud Insights
+
+如果您還沒有_租 戶_、Cloud Manager會在您啟用監控時為您設定一個帳戶。利用此功能、您可以存取擷取單位所收集的效能資料。 Cloud Insights租戶是 NetApp Cloud Insights 解決方案服務中的安全資料分割區。
+
+
+
+=== 網路介面 Cloud Insights
+
+Cloud Manager 中的 Monitoring （監控）索引標籤可為您的磁碟區提供基本效能資料。您可以 Cloud Insights 從瀏覽器進入「靜態」網頁介面、以執行更深入的監控、並為 Cloud Volumes ONTAP 您的「靜態」系統設定警示。
+
+
+
+=== 免費試用與訂閱
+
+Cloud Manager提供Cloud Insights 免費的VMware試用版、可在Cloud Manager中提供效能資料、讓您探索Cloud Insights VMware標準版的各項功能。
+
+在第29天、您的計畫會自動從試用版移轉至 https://docs.netapp.com/us-en/cloudinsights/concept_subscribing_to_cloud_insights.html#editions["基本版"^]
+
+您可以訂閱Standard或Premium版本、從Cloud Insights 這個網頁介面存取其他功能。
+
+https://docs.netapp.com/us-en/cloudinsights/concept_subscribing_to_cloud_insights.html["瞭解如何訂閱 Cloud Insights 此功能"^]
